@@ -1,4 +1,8 @@
 import 'package:dcob/presentation/post_auth/create_certificate.dart';
+import 'package:dcob/presentation/post_auth/created_certificates.dart';
+import 'package:dcob/presentation/post_auth/home_screen.dart';
+import 'package:dcob/presentation/post_auth/received_certificates.dart';
+import 'package:dcob/presentation/post_auth/verify_certificate.dart';
 import 'package:dcob/presentation/splash_screen.dart';
 import 'package:dcob/presentation/pre_auth/wallet_setup_screen.dart';
 import 'package:dcob/presentation/pre_auth/recover_wallet_screen.dart';
@@ -29,6 +33,12 @@ class MyApp extends StatelessWidget {
           '/wallet_success': (context) => const WalletSuccessScreen(),
           '/recover_wallet': (context) => const RecoverWalletScreen(),
           '/create_certificate': (context) => const CreateCertificateScreen(),
+          '/created_certificates': (context) =>
+              const CreatedCertificatesScreen(),
+          '/received_certificates': (context) =>
+              const ReceivedCertificatesScreen(),
+          '/home_screen': (context) => const HomeScreen(),
+          '/verify_certificate': (context) => const VerifyCertificates(),
         },
         theme: ThemeData.light().copyWith(
           appBarTheme: const AppBarTheme(

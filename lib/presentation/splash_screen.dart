@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
         if(state is WalletNotFoundState){
           Navigator.of(context).pushReplacementNamed("/wallet_setup_screen");
         }else if(state is WalletDetailsState){
-          Navigator.of(context).pushReplacementNamed("/create_certificate");
+          Navigator.of(context).pushReplacementNamed("/home_screen");
         }
       },
       child: Scaffold(

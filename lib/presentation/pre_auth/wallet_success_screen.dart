@@ -18,7 +18,7 @@ class WalletSuccessScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wallet Success'),
+        title: const Text('Wallet Details'),
         centerTitle: true,
       ),
       body: Padding(
@@ -66,7 +66,7 @@ class WalletSuccessScreen extends StatelessWidget {
             primaryButton(
               onTap: () {
                 // Navigate back to the home screen
-                Navigator.of(context).pushNamed('create_certificate');
+                Navigator.of(context).pushReplacementNamed('/home_screen');
               },
               text: 'Continue',
             ),

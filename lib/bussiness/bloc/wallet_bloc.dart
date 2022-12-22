@@ -33,11 +33,11 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     String seed = bip39.mnemonicToSeedHex(mnemonic);
     Chain chain = Chain.seed(seed);
     ExtendedKey key = chain.forPath("m/44'/60'/0'/0/0");
-    String privateKey = key.privateKeyHex().substring(2);
-    EthPrivateKey private = EthPrivateKey.fromHex(privateKey);
-    EthereumAddress publicKey = private.address;
+    String privateKeyHex = key.privateKeyHex().substring(2);
+    EthPrivateKey privateKey = EthPrivateKey.fromHex(privateKeyHex);
+    EthereumAddress publicKey = privateKey.address;
     String env = await rootBundle.loadString("assets/env.json");
-    return WalletDetailsState(
+    WalletDetailsState walletDetailsState = WalletDetailsState(
       mnemonic: mnemonic,
       privateKey: privateKey,
       publicKey: publicKey,
@@ -50,6 +50,15 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
         contractAddress: contractAddress,
         name: "CERT",
       ),
+      isIssuer: false,
+    );
+    return WalletDetailsState(
+      mnemonic: mnemonic,
+      privateKey: privateKey,
+      publicKey: publicKey,
+      web3client: walletDetailsState.web3client,
+      certificateContract: walletDetailsState.certificateContract,
+      isIssuer: await ContractHelper.isIssuer(walletDetailsState),
     );
   }
 
@@ -96,10 +105,11 @@ class WalletNotFoundState extends WalletState {}
 // State for the WalletDetailsBloc
 class WalletDetailsState extends WalletState {
   final String mnemonic;
-  final String privateKey;
+  final EthPrivateKey privateKey;
   final EthereumAddress publicKey;
   final Web3Client web3client;
   final DeployedContract certificateContract;
+  final bool isIssuer;
 
   WalletDetailsState({
     required this.mnemonic,
@@ -107,5 +117,6 @@ class WalletDetailsState extends WalletState {
     required this.publicKey,
     required this.web3client,
     required this.certificateContract,
+    required this.isIssuer,
   });
 }
