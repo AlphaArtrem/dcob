@@ -1,13 +1,9 @@
-import 'dart:convert';
 import 'dart:io';
-import 'package:dcob/business/helper/api_helper.dart';
 import 'package:dcob/business/helper/contract_helper.dart';
-import 'package:dcob/data/static/api_constants.dart';
 import 'package:dcob/presentation/common/buttons.dart';
 import 'package:dcob/business/bloc/wallet_bloc.dart';
 import 'package:dcob/presentation/common/web_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
@@ -18,7 +14,7 @@ class CreateCertificateScreen extends StatefulWidget {
   const CreateCertificateScreen({super.key});
 
   @override
-  _CreateCertificateScreenState createState() =>
+  State<CreateCertificateScreen> createState() =>
       _CreateCertificateScreenState();
 }
 

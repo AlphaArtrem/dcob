@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:dcob/business/bloc/wallet_bloc.dart';
-import 'package:dcob/presentation/common/buttons.dart';
 import 'package:dcob/presentation/common/dialogue.dart';
 import 'package:dcob/presentation/post_auth/create_certificate.dart';
 import 'package:dcob/presentation/post_auth/created_certificates.dart';

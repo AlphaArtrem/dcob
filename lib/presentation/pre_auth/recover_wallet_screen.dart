@@ -3,14 +3,13 @@ import 'package:dcob/presentation/common/buttons.dart';
 import 'package:dcob/presentation/pre_auth/wallet_success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 
 class RecoverWalletScreen extends StatefulWidget {
   static const String route = '/recover_wallet';
   const RecoverWalletScreen({super.key});
 
   @override
-  _RecoverWalletScreenState createState() => _RecoverWalletScreenState();
+  State<RecoverWalletScreen> createState() => _RecoverWalletScreenState();
 }
 
 class _RecoverWalletScreenState extends State<RecoverWalletScreen> {
@@ -123,8 +122,9 @@ class _RecoverWalletScreenState extends State<RecoverWalletScreen> {
                   if (_formKey.currentState!.validate()) {
                     // Join the mnemonic words into a single string and recover the wallet
                     String mnemonic = '';
-                    for(int i = 0; i < _mnemonicWords.length; i++){
-                      mnemonic += _mnemonicWords[i].text + (i < _mnemonicWords.length - 1 ? ' ' : '');
+                    for (int i = 0; i < _mnemonicWords.length; i++) {
+                      mnemonic += _mnemonicWords[i].text +
+                          (i < _mnemonicWords.length - 1 ? ' ' : '');
                     }
                     context.read<WalletBloc>().add(RecoverWallet(mnemonic));
                   }
