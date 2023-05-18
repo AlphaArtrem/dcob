@@ -26,7 +26,6 @@ class _CreateCertificateScreenState extends State<CreateCertificateScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     walletDetailsState = context.read<WalletBloc>().state as WalletDetailsState;
   }

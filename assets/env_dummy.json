@@ -1,0 +1,6 @@
+{
+    "ipfsInfuraApiKey" : "ipfsInfuraApiKey",
+    "ipfsInfuraApiSecretKey" : "ipfsInfuraApiSecretKey",
+    "contractAddress" : "contractAddress",
+    "rpcUrl" : "rpcUrl"
+}

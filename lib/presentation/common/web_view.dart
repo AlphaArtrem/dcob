@@ -19,9 +19,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(
-          onProgress: (int progress) {
-            // TODO: Update loading bar.
-          },
+          onProgress: (int progress) {},
         ),
       )
       ..loadRequest(Uri.parse(widget.initialUrl));

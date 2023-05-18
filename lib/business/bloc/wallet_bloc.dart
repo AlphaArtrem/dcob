@@ -1,16 +1,12 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:dart_bip32_bip44/dart_bip32_bip44.dart';
 import 'package:dcob/business/helper/contract_helper.dart';
-import 'package:ed25519_hd_key/ed25519_hd_key.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:hex/hex.dart';
 import 'package:http/http.dart';
-import 'package:logger/logger.dart';
 import 'package:web3dart/web3dart.dart';
 
 // Global bloc to contain wallet credentials
@@ -35,13 +31,13 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     EthPrivateKey privateKey = EthPrivateKey.fromHex(privateKeyHex);
     EthereumAddress publicKey = privateKey.address;
     String env = await rootBundle.loadString("assets/env.json");
-    Map<String, dynamic> envData =  jsonDecode(env);
+    Map<String, dynamic> envData = jsonDecode(env);
     WalletDetailsState walletDetailsState = WalletDetailsState(
       mnemonic: mnemonic,
       privateKey: privateKey,
       publicKey: publicKey,
       web3client: Web3Client(
-        envData["mumbaiRpc"],
+        envData["rpcUrl"],
         Client(),
       ),
       certificateContract: await ContractHelper.loadContract(
