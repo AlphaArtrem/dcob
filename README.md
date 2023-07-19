@@ -13,11 +13,11 @@ git clone git@github.com:AlphaArtrem/dcob.git
 cd contracts
 npm install -g truffle
 ```
-3. Install node dependecies
+3. Install node dependencies
 ```
 npm install
 ```
-4. Comiple the smart contract
+4. Compile the smart contract
 ```
 truffle compile
 ```  
@@ -29,7 +29,7 @@ touch .secret
 ```
 truffle migrate –-network deployment
 ```
-7. Save the ```contract address``` affter deployment.
+7. Save the ```contract address``` after deployment.
 ```
 1_deploy_contracts.js
 =====================
@@ -68,7 +68,8 @@ Summary
     "rpcUrl" : "rpcUrl"
 }
 ```
-You can get the Infura key and secret from <a href = "https://www.infura.io/">infura.io</a>. The contract address will be provide in the step 7. RPC URL will be your chain's rpc url.
+You can get the Infura key and secret from <a href = "https://www.infura.io/">infura.io</a>. The contract address will be provide in the ```step 7```. RPC URL will be your chain's rpc url.
+
 10. Fetch pub dependencies for Flutter and run the app.
 ```
 flutter pub get
